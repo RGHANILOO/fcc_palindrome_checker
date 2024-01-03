@@ -1,4 +1,5 @@
 # fcc_palindrome_checker
+
 FCC Algorithms and Data Structures required project for certification - Project 1/5
 
 Build a Palindrome Checker
@@ -16,7 +17,7 @@ User Stories:
 4. When you click on the #check-btn element without entering a value into the #text-input element, an alert should appear with the text Please input a value
 5. When the #text-input element only contains the letter A and the #check-btn element is clicked, the #result element should contain the text A is a palindrome
 6. When the #text-input element contains the text eye and the #check-btn element is clicked, the #result element should contain the text eye is a palindrome
-7. When the #text-input element contains the text _eye and the #check-btn element is clicked, the #result element should contain the text eye is a palindrome
+7. When the #text-input element contains the text \_eye and the #check-btn element is clicked, the #result element should contain the text eye is a palindrome
 8. When the #text-input element contains the text race car and the #check-btn element is clicked, the #result element should contain the text race car is a palindrome
 9. When the #text-input element contains the text not a palindrome and the #check-btn element is clicked, the #result element should contain the text not a palindrome is not a palindrome
 10. When the #test-input element contains the text A man, a plan, a canal. Panama and the #check-btn element is clicked, the #result element should contain the text A man, a plan, a canal. Panama is a palindrome
@@ -29,3 +30,44 @@ User Stories:
 17. When the #text-input element contains the text five|\_/|four and the #check-btn element is clicked, the #result element should contain the text five|\_/|four is not a palindrome
 
 Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding!
+
+Approach :
+in order to solve this problem i will be applying the following :
+
+    String Methods to split, reverse and join
+
+    ```
+    function checkPalindrome(str) {
+
+        let opoStr = str.split('').reverse().join('');
+        if (opoStr === str) {
+        console.log('Palindrome');
+    }
+        console.log('Not Palindrome');
+    }
+
+    checkPalindrome('eye');// Palindrome
+    checkPalindrome('madam');// Palindrome
+    checkPalindrome('fox');// Not Palindrome
+```
+
+    we need apply regex to check alsp replace all alphanumeric values and symbols.
+
+    ```
+    function checkPalindrome(str) {
+    const regEx= /[\W_]/g; 
+    const processedStr = str.toLowerCase().replace(regEx, '');
+
+    let opoStr = processedStr.split('').reverse().join('');
+    if (opoStr === processedStr) {
+      console.log('Palindrome');
+    } else {
+      console.log('Not Palindrome');
+        }
+    }
+
+    checkPalindrome('eye')
+    checkPalindrome('-eye')
+    checkPalindrome('My age is 0, 0 si ega ym.')
+    checkPalindrome('five|\_/|four')    
+    ```
