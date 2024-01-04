@@ -20,6 +20,12 @@
 document.getElementById('check-btn').addEventListener('click',()=>{
     // get the inout value and strip and process it
     const inputValue = document.getElementById('text-input').value;
+
+    // check if the input is empty  or not
+    if (!inputValue) {
+        alert('Please enter a value');
+        return;
+    }
     const cleanedUpInput= cleanUp(inputValue);
 
     // check if cleaned up value is palindrome
